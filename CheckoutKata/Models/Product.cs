@@ -10,5 +10,11 @@ namespace CheckoutKata.Models
     {
         public string sku { get; set; }
         public float price { get; set; }
+
+        public Product(string _sku, float _price)
+        {
+            sku = _sku;
+            price = _price;
+        }
     }
 }
