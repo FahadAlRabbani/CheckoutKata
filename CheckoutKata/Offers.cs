@@ -17,10 +17,10 @@ namespace CheckoutKata
                 _Products.Add(new Product(sku, price));
         }
 
-        public void AddDeal(string sku, int count, float price)
+        public void AddDeal(string sku, int quantity, float price)
         {
-            if (sku.Length > 0 && count > 0 && price > 0.0f)
-                _Deals.Add(new Offer(sku, count, price));
+            if (sku.Length > 0 && quantity > 0 && price > 0.0f)
+                _Deals.Add(new Offer(sku, quantity, price));
         }
 
         public float GetProductPrice(string sku)
@@ -37,7 +37,7 @@ namespace CheckoutKata
     public interface IOffers
     {
         void AddProduct(string sku, float price);
-        void AddDeal(string sku, int count, float price);
+        void AddDeal(string sku, int quantity, float price);
         float GetProductPrice(string sku);
         IEnumerable<Offer> GetDealForProduct(string sku);
     }

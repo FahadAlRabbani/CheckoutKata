@@ -29,6 +29,11 @@ namespace CheckoutKata
             BasketList.Clear();
         }
 
+        public bool IsEmpty()
+        {
+            return !BasketList.Any();
+        }
+
         public float Subtotal()
         {
             return BasketList.Distinct().Sum(s => BasketList.Count(t => t == s) * _offers.GetProductPrice(s));
@@ -78,6 +83,7 @@ namespace CheckoutKata
         void Scan(string sku);
         void Remove(string sku);
         void Empty();
+        bool IsEmpty();
         float Subtotal();
         float Savings();
         float Total();
