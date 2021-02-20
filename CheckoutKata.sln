@@ -3,7 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CheckoutKata", "CheckoutKata\CheckoutKata.csproj", "{D5506E5F-0571-4A24-9FF5-81D8BF010D2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CheckoutKataTest", "CheckoutKataTest\CheckoutKataTest.csproj", "{31F76E69-915B-447B-AABE-EAED11F67780}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D5506E5F-0571-4A24-9FF5-81D8BF010D2F} = {D5506E5F-0571-4A24-9FF5-81D8BF010D2F}
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5506E5F-0571-4A24-9FF5-81D8BF010D2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5506E5F-0571-4A24-9FF5-81D8BF010D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5506E5F-0571-4A24-9FF5-81D8BF010D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5506E5F-0571-4A24-9FF5-81D8BF010D2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31F76E69-915B-447B-AABE-EAED11F67780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31F76E69-915B-447B-AABE-EAED11F67780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31F76E69-915B-447B-AABE-EAED11F67780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31F76E69-915B-447B-AABE-EAED11F67780}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
