@@ -42,7 +42,9 @@ namespace CheckoutKata
         public float Savings()
         {
             var totalSavings = 0.0f;
+
             var distinctBasket = BasketList.Distinct();
+
             foreach (var sku in distinctBasket)
             {
                 var deals = _offers.GetDealForProduct(sku).OrderByDescending(d => d.count).ToList();
@@ -56,6 +58,7 @@ namespace CheckoutKata
                 var originalPrice = countOfItems * basePrice;
 
                 var savings = 0.0f;
+
                 foreach (var deal in deals)
                 {
                     if (countOfItems < deal.count) continue;
@@ -65,6 +68,7 @@ namespace CheckoutKata
                 }
 
                 savings += countOfItems * basePrice;
+
                 totalSavings = originalPrice - savings;
             }
 

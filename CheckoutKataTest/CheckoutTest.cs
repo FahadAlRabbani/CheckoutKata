@@ -21,9 +21,7 @@ namespace CheckoutKataTest
         {
             _checkout = Substitute.For<ICheckout>();
             _offers = Substitute.For<IOffers>();
-
             _offers.AddProduct(_sku, _price);
-
             _offers.AddDeal(_sku, 3, 2.4f);
             _offers.AddDeal(_sku, 5, 3.7f);
             _offers.AddDeal(_sku, 7, 4.9f);
@@ -33,7 +31,6 @@ namespace CheckoutKataTest
         public void Checkout_Scans_A_Item()
         {
             _checkout.Scan(_sku);
-
             _checkout.Received().Scan(_sku);
         }
 
@@ -43,9 +40,7 @@ namespace CheckoutKataTest
             _checkout.Scan(_sku);
             _checkout.Empty();
             _checkout.IsEmpty().Returns(true);
-
             _checkout.Received().Empty();
-
             bool isBasketEmpty = _checkout.IsEmpty();
             Assert.IsTrue(isBasketEmpty);
         }
@@ -56,8 +51,6 @@ namespace CheckoutKataTest
             _checkout.Scan(_sku);
             _checkout.IsEmpty().Returns(false);
             _checkout.DidNotReceive().Empty();
-
-
             bool isBasketEmpty = _checkout.IsEmpty();
             Assert.IsFalse(isBasketEmpty);
         }
@@ -66,9 +59,7 @@ namespace CheckoutKataTest
         public void Checkout_Configure_Offers()
         {
             _offers.AddProduct(_sku, _price);
-
             _checkout.Configure(_offers);
-
             _checkout.Received().Configure(Arg.Any<IOffers>());
         }
 
@@ -79,9 +70,7 @@ namespace CheckoutKataTest
             _checkout.Scan(_sku);
             _checkout.Scan(_sku);
             _checkout.Scan(_sku);
-
             _checkout.Subtotal().Returns(6.0f);
-
             Assert.AreEqual(6.0f, _checkout.Subtotal());
         }
 
@@ -92,9 +81,7 @@ namespace CheckoutKataTest
             _checkout.Scan(_sku);
             _checkout.Scan(_sku);
             _checkout.Scan(_sku);
-
             _checkout.Savings().Returns(2.1f);
-
             Assert.AreEqual(2.1f, _checkout.Savings());
         }
 
@@ -105,11 +92,8 @@ namespace CheckoutKataTest
             _checkout.Scan(_sku);
             _checkout.Scan(_sku);
             _checkout.Scan(_sku);
-
             _checkout.Total().Returns(3.9f);
-
             Assert.AreEqual(3.9f, _checkout.Total());
-
         }
     }
 }
